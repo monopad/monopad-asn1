@@ -20,19 +20,19 @@ jobs:
          import asn1tools
          dataItem = asn1tools.compile_files('$GITHUB_WORKSPACE/descriptions/monopad-ada-1.0/data-item.asn')
          data = open('$GITHUB_WORKSPACE/descriptions/monopad-ada-1.0/data-item-sample-1.ber','rb').read()
-         dataItem.decode(data)"
+         dataItem.decode('DataItem', data)"
       - name: Validate data-item.asn through sample (2)
         run: |
          python3 -c "
          import asn1tools
          dataItem = asn1tools.compile_files('$GITHUB_WORKSPACE/descriptions/monopad-ada-1.0/data-item.asn')
          data = open('$GITHUB_WORKSPACE/descriptions/monopad-ada-1.0/data-item-sample-2.ber','rb').read()
-         dataItem.decode(data)"
+         dataItem.decode('DataItem', data)"
       - name: Validate data-item.asn through sample (empty)
         run: |
          python3 -c "
          import asn1tools
          dataItem = asn1tools.compile_files('$GITHUB_WORKSPACE/descriptions/monopad-ada-1.0/data-item.asn')
          data = open('$GITHUB_WORKSPACE/descriptions/monopad-ada-1.0/data-item-sample-empty.ber','rb').read()
-         dataItem.decode(data)"
+         dataItem.decode('DataItem', data)"
 
