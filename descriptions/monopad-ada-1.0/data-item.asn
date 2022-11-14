@@ -1,0 +1,32 @@
+DataItemSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+
+DataItem ::= SEQUENCE {
+	provenance SEQUENCE OF VisibleString OPTIONAL,
+	labels SEQUENCE OF Label OPTIONAL,
+	content OCTET STRING OPTIONAL
+}
+
+Label ::= SEQUENCE {
+	name VisibleString,
+	description Description OPTIONAL,
+	value Primitive OPTIONAL
+}
+
+Description ::= SEQUENCE {
+	text UTF8String,
+	mime VisibleString OPTIONAL
+}
+
+Primitive ::= CHOICE {
+	nullValue NULL,
+	boolValue BOOLEAN,
+	stringValue UTF8String,
+	numberValue REAL,
+	arrayValue SEQUENCE OF Primitive,
+	objectValue SEQUENCE OF SEQUENCE {
+		key UTF8String,
+		value Primitive
+	}
+}
+
+END
